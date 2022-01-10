@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"strconv"
 )
@@ -17,3 +18,14 @@ func MakeInt(str string) int{
 	return intVal
 }
 
+func AddInts(int ...int) int {
+	sum := 0
+	for _, num := range int {
+		sum += num
+	}
+	return sum
+}
+
+func main() {
+	fmt.Println(AddInts(1, 2, 3, 4))
+}
