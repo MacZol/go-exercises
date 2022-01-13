@@ -9,14 +9,20 @@ func TestAdd(t *testing.T) {
 	assert.Equal(t, 6, Add(1, 2, 3))
 }
 
-func TestAddInt(t *testing.T) {
+func TestAdd2Int(t *testing.T) {
 	assert.Equal(t, 5, Add(2, 3))
 }
 
-// Positive
+func TestAddNegativeInt(t *testing.T) {
+	assert.Equal(t, -1, Add(2, -3))
+}
 
-// Negative
+func TestAddBigInt(t *testing.T) {
+	assert.Equal(t, 100000001, Add(1, 100000000))
+}
 
-// Big numbers
+func TestAdd2BigInt(t *testing.T) {
+	assert.Equal(t, 200000000000, Add(100000000000, 100000000000))
+}
 
-// 2 Really big numbers - how big
+// how big
