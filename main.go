@@ -51,7 +51,7 @@ func printTotal(total int) {
 	p.Println(total)
 }
 
-func makeInt(str string) int{
+func makeInt(str string) int {
 	intVal, err := strconv.Atoi(str)
 	check(err)
 	return intVal
@@ -74,7 +74,7 @@ func loadInputFromFile(fileName string) []int {
 		panic(err)
 	}
 	file := string(bytes)
-	return NumsFromStrings(file)
+	return numsFromStrings(file)
 }
 
 func check(e error) {
@@ -83,23 +83,7 @@ func check(e error) {
 	}
 }
 
-//func readCsvFile(filePath string) [][]string {
-//	f, err := os.Open(filePath)
-//	if err != nil {
-//		log.Fatal("Unable to read input file " + filePath, err)
-//	}
-//	defer f.Close()
-//
-//	csvReader := csv.NewReader(f)
-//	records, err := csvReader.ReadAll()
-//	if err != nil {
-//		log.Fatal("Unable to parse file as CSV for " + filePath, err)
-//	}
-//
-//	return records
-//}
-
-func NumsFromStrings(input string) []int {
+func numsFromStrings(input string) []int {
 	trimmedInput:= strings.TrimSpace(input)
 	if len(trimmedInput) == 0 {
 		return []int{}
