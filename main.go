@@ -18,12 +18,18 @@ func main() {
 
 func loadNumbers() []int {
 	var filelocation string
-	flag.StringVar(&filelocation, "input-file", "", "Allows you to open add values of specific file")
+	flag.StringVar(&filelocation, "input-file", "input3.csv", "Allows you to open add values of specific file")
 	flag.Parse()
 
 	if filelocation != "" {
-		data := loadInputFromFile(filelocation)
-		return NumsFromStrings(data)
+		total := []int{}
+		for _, osArg := range os.Args[2:] {
+			loadedFile := loadInputFromFile(osArg)
+			loadedNumbers := NumsFromStrings(loadedFile)
+			sum := add(loadedNumbers...)
+			total = append(total, sum)
+		}
+		return total
 	}
 	if len(os.Args) == 1 {
 		data := loadInputFromFile("input.txt")
