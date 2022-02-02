@@ -121,3 +121,16 @@ func TestNumsFromStrings(t *testing.T) {
 		iss.Equal(want, got)
 	})
 }
+
+func TestCheckDuplicates(t *testing.T) {
+	t.Run("Removes duplicate numbers", func(t *testing.T) {
+		iss := is.New(t)
+
+		// Got
+		got := checkDuplicates([]int{1, 1, 2, 2, 3})
+		// Want
+		want := []int{1, 2, 3}
+		// Assert
+		iss.Equal(want, got)
+	})
+}

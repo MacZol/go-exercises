@@ -25,16 +25,22 @@ func loadNumbers() []int {
 		total := []int{}
 		for _, osArg := range os.Args[2:] {
 			loadedFile := loadInputFromFile(osArg)
-			sum := add(loadedFile...)
+			numbersNoDuplicates := checkDuplicates(loadedFile)
+			sum := add(numbersNoDuplicates...)
 			total = append(total, sum)
 		}
 		return total
 	}
 	if len(os.Args) == 1 {
-		return loadInputFromFile("input.txt")
+
+		loadedFile := loadInputFromFile("input.txt")
+
+		return checkDuplicates(loadedFile)
 	}
 
-	return collectCliArgs()
+	loadedNumbers := collectCliArgs()
+
+	return checkDuplicates(loadedNumbers)
 }
 
 func add(int ...int) int {
@@ -100,4 +106,16 @@ func numsFromStrings(input string) []int {
 		nums =  append(nums, value)
 	}
 	return nums
+}
+
+func checkDuplicates(intSlice []int) []int {
+	allKeys := make(map[int]bool)
+	list := []int{}
+	for _, item := range intSlice {
+		if _, value := allKeys[item]; !value {
+			allKeys[item] = true
+			list = append(list, item)
+		}
+	}
+	return list
 }
