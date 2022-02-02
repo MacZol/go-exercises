@@ -13,7 +13,7 @@ func TestAdd(t *testing.T) {
 		got := add(2, 3)
 
 		// Want 5
-		want := 6
+		want := 5
 
 		// Assert
 		iss.Equal(want, got)
