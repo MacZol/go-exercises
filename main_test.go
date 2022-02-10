@@ -134,3 +134,26 @@ func TestCheckDuplicates(t *testing.T) {
 		iss.Equal(want, got)
 	})
 }
+
+//func TestLoadNumbers(t *testing.T) {
+//	t.Run("load input", func(t *testing.T) {
+//		iss := is.New(t)
+//
+//
+//		// Got
+//		got := loadNumbers()
+//		fmt.Println("HEREEEEE")
+//		fmt.Println(got)
+//		// Want
+//		want := 0
+//
+//		// Assert
+//		iss.Equal(want, got)
+//	})
+//
+//
+//}
+
+func TestMainFunc(t *testing.T) {
+
+}
